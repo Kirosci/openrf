@@ -23,5 +23,5 @@ It will also send request to the modified urls and respectively show the respons
 It will just give you the modifed requests.
 
 
-##Ex:
+## Ex:
 python3 -f urls.txt -u burpcollaborator.link -A -R
