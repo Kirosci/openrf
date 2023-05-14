@@ -4,21 +4,6 @@ import argparse
 import requests
 from termcolor import colored
 
-logo= """
-  ______                             _______   ______  
- /      \                           |       \ /      \ 
-|  ▓▓▓▓▓▓\ ______   ______  _______ | ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\
-|
-| ▓▓  | ▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\ ▓▓▓▓▓▓▓\ ▓▓    ▓▓ ▓▓ \    
-| ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓    ▓▓ ▓▓  | ▓▓ ▓▓▓▓▓▓▓\ ▓▓▓▓    
-| ▓▓__/ ▓▓ ▓▓__/ ▓▓ ▓▓▓▓▓▓▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓      
- \▓▓    ▓▓ ▓▓    ▓▓\▓▓     \ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓      
-  \▓▓▓▓▓▓| ▓▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓   \▓▓\▓▓   \▓▓\▓▓      
-         | ▓▓                                          
-         | ▓▓                                          
-          \▓▓                                          
-
-"""
 
 def replace_url_in_query_params(url, replace_url, replace_all):
     # decode the input URL if it is url encoded
@@ -58,14 +43,12 @@ def make_request(url):
 
 if __name__ == '__main__':
 
-    print (colored(logo, 'dark_grey', attrs=["blink"]))
-
-    parser = argparse.ArgumentParser(description='Replace URL in query parameters')
-    parser.add_argument('-f', '--file', type=str, required=True, help='Input file containing URLs')
-    parser.add_argument('-u', '--url', type=str, required=True, help='Server URL, like burp collaborator url')
-    parser.add_argument('-o', '--output', type=str, required=True, help='Output file to save modified URLs')
-    parser.add_argument('-A', '--replace-all', action='store_true', help='Replace all parameter values with the replace URL')
-    parser.add_argument('-R', '--request', action='store_true', help='Make request to each modified URL and print the response')
+    parser = argparse.ArgumentParser(description='Usage: python3 openrf.py -f urls.txt -u https://serverurl/ -A -o output.txt')
+    parser.add_argument('-f', '--file', type=str, required=True, help='Specify file containing URLs')
+    parser.add_argument('-u', '--url', type=str, required=True, help='URL for replacing the vlaues, For operedirect or ssrf\nBurp Collborator, postbin,etc')
+    parser.add_argument('-o', '--output', type=str, required=True, help='Output file to save results')
+    parser.add_argument('-A', '--replace-all', action='store_true', help='Replace values of all parameters in the url with given url\n Without -A it will only replace the parameters having any url as value')
+    parser.add_argument('-R', '--request', action='store_true', help='Make request to each modified URL and print the status code')
     args = parser.parse_args()
 
     with open(args.file, 'r') as f:
