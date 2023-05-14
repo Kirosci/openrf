@@ -12,14 +12,14 @@ To use URL Parameter Replacer, you must have Python 3.x and the requests module 
 pip install -r requirements.txt
 
 ## Flag (-A)
-# If used (-A),
+### If used (-A),
 It will replace each and every parameter's value to your url.
-# If not used,
+### If not used,
 It will only replace the values of the parameters that contain url as values.
 ## Flag -R:
-# If used (-R),
+### If used (-R),
 It will also send request to the modified urls and respectively show the response. 
-# If not used,
+### If not used,
 It will just give you the modifed requests.
 
 
