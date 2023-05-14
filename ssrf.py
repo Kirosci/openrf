@@ -4,6 +4,22 @@ import argparse
 import requests
 from termcolor import colored
 
+logo= """
+  ______                             _______   ______  
+ /      \                           |       \ /      \ 
+|  ▓▓▓▓▓▓\ ______   ______  _______ | ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\
+|
+| ▓▓  | ▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\ ▓▓▓▓▓▓▓\ ▓▓    ▓▓ ▓▓ \    
+| ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓    ▓▓ ▓▓  | ▓▓ ▓▓▓▓▓▓▓\ ▓▓▓▓    
+| ▓▓__/ ▓▓ ▓▓__/ ▓▓ ▓▓▓▓▓▓▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓      
+ \▓▓    ▓▓ ▓▓    ▓▓\▓▓     \ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓      
+  \▓▓▓▓▓▓| ▓▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓   \▓▓\▓▓   \▓▓\▓▓      
+         | ▓▓                                          
+         | ▓▓                                          
+          \▓▓                                          
+
+"""
+
 def replace_url_in_query_params(url, replace_url, replace_all):
     # decode the input URL if it is url encoded
     decoded_url = urllib.parse.unquote(url)
@@ -41,6 +57,9 @@ def make_request(url):
         return str(e)
 
 if __name__ == '__main__':
+
+    print (colored(logo, 'dark_grey', attrs=["blink"]))
+
     parser = argparse.ArgumentParser(description='Replace URL in query parameters')
     parser.add_argument('-f', '--file', type=str, required=True, help='Input file containing URLs')
     parser.add_argument('-u', '--url', type=str, required=True, help='Server URL, like burp collaborator url')
