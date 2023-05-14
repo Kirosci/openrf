@@ -45,7 +45,7 @@ def make_request(url):
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description='Usage: python3 openrf.py -f urls.txt -u https://serverurl/ -A -o output.txt')
+    parser = argparse.ArgumentParser(description='Example: python3 openrf.py -f urls.txt -u https://serverurl/ -A -o output.txt')
     parser.add_argument('-f', '--file', type=str, required=True, help='Specify file containing URLs')
     parser.add_argument('-u', '--url', type=str, required=True, help='URL for replacing the vlaues, For operedirect or ssrf\nBurp Collborator, postbin,etc')
     parser.add_argument('-o', '--output', type=str, required=True, help='Output file to save results')
