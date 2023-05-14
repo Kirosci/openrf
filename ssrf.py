@@ -1,3 +1,5 @@
+# Author: Shiv Pratap Singh [Kirosci]--[Github]
+
 import re
 import urllib.parse
 import argparse
